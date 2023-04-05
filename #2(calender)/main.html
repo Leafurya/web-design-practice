@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		html, body{
+			width:100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		}
+		#calender{
+			width: 100%;
+			height: 100%;
+
+			position: absolute;
+			display: flex;
+			flex-direction: column;
+			border-left: 1px solid gray;
+			border-top: 1px solid gray;
+
+			box-sizing: border-box;
+		}
+		.day{
+			flex:1;
+			font-size: larger;
+			border-right: 1px solid gray;
+		}
+		.week{
+			display: flex;
+			flex-direction: row;
+			flex:1;
+			border-bottom: 1px solid gray;
+		}
+		.today{
+			background-color: wheat;
+		}
+		.header{
+			display: flex;
+			height: 80px;
+			flex-direction: column;
+			flex-wrap: wrap;
+			border-bottom: 1px solid gray;
+			background-color: cornsilk;
+		}
+		.header > div{
+			display: flex;
+			flex: 1;
+		}
+		.header .week_cell{
+			display: flex;
+			flex:1;
+			align-items: center;
+			justify-content: center;
+			border-right: 1px solid gray;
+		}
+		.month{
+			border-bottom: 1px solid gray;
+			border-right: 1px solid gray;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.sunday{
+			color: red;
+		}
+		.saturday{
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="calender">
+		<div class="header">
+			<div class="month"></div>
+			<div>
+				<div class="week_cell">일</div>
+				<div class="week_cell">월</div>
+				<div class="week_cell">화</div>
+				<div class="week_cell">수</div>
+				<div class="week_cell">목</div>
+				<div class="week_cell">금</div>
+				<div class="week_cell">토</div>
+			</div>
+		</div>
+		<div class="week">
+			<div class="day sunday"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day saturday"></div>
+		</div>
+		<div class="week">
+			<div class="day sunday"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day saturday"></div>
+		</div>
+		<div class="week">
+			<div class="day sunday"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day saturday"></div>
+		</div>
+		<div class="week">
+			<div class="day sunday"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day saturday"></div>
+		</div>
+		<div class="week">
+			<div class="day sunday"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day saturday"></div>
+		</div>
+		<div class="week">
+			<div class="day sunday"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day"></div>
+			<div class="day saturday"></div>
+		</div>
+	</div>
+	<script>
+		let date=new Date()
+		let oldMonth=date.getMonth()
+		
+
+		let dayEle=document.querySelectorAll(".day")
+		
+		function CalenderInit(month){
+			document.querySelector(".month").innerHTML=month+1+"월"
+
+			let date=new Date()
+			date.setMonth(month)
+			let oldDate=date.getDate()-1
+
+			date.setDate(1)
+			let day=date.getDay()
+			dayEle[day+oldDate].classList.add("today")
+			for(;month==date.getMonth();date.setDate(date.getDate()+1)){
+				dayEle[day++].innerHTML=date.getDate()
+			}
+		}
+		CalenderInit(3)
+
+	</script>
+</body>
+</html>
