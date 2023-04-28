@@ -1,3 +1,3 @@
 # web-design-practice
 web-design-practice
-https://github.com/Leafurya/web-design-practice
+https://leafurya.github.io/web-design-practice/
