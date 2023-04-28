@@ -1,1 +1,1 @@
-https://leafurya.github.io/web-design-practice/no.1/main.html
+https://leafurya.github.io/web-design-practice/no_1/main.html
